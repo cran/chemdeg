@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -362,7 +362,7 @@ correctly use and interpret the results of the functions.
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(chemdeg)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(chemdeg)</span></code></pre></div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>A key aspect in food science is the prediction of the change of food
@@ -439,19 +439,19 @@ second column. The values of experimental error can be given in the
 optional third column. Different input types or data-frames with less
 than two or more than 3 columns will return an error. The output of the
 function is an <code>ord_res</code> class object.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ord1 <span class="co"># simulated data from a first order kinetic model with error</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   t concentration   std.error</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0    14.3786746 0.077039565</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1     7.4582106 0.059189631</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2     3.7612821 0.129590803</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 3     1.8158076 0.083778548</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 4     0.9189166 0.005502180</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 5     0.4479939 0.006840325</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">det_order</span>(ord1)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Reaction order estimated: 1</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(res)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;ord_res&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>ord1 <span class="co"># simulated data from a first order kinetic model with error</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt;   t concentration   std.error</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; 1 0    14.3786746 0.077039565</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; 2 1     7.4582106 0.059189631</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; 3 2     3.7612821 0.129590803</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; 4 3     1.8158076 0.083778548</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; 5 4     0.9189166 0.005502180</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; 6 5     0.4479939 0.006840325</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">det_order</span>(ord1)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; Reaction order estimated: 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">class</span>(res)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;ord_res&quot;</span></span></code></pre></div>
 <p>The function <code>results()</code> shows a comprehensive summary of
 the results. These include:</p>
 <ol style="list-style-type: decimal">
@@ -464,75 +464,75 @@ conventional concentration vs. time space with the solution of eq.(1),
 the estimate of the rate constant and its confidence interval;</li>
 <li>goodness-of-fit statistics of the final fit (see next section)</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">results</span>(res)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Linear regression in the phase space: </span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; log(dx/dt)= 0.97 log(x) + ( -0.46 )</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Estimate of n:</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Estimate   Std. Error      t value     Pr(&gt;|t|) </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9.701806e-01 4.235714e-03 2.290477e+02 1.835114e-07 </span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Confidence interval of n: </span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     2.5 %    97.5 % </span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.9567007 0.9836605 </span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Statistical analysis indicates that an order 1 degradation kineitc model is likely to describe the data.</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The null hypothesis H0:</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &quot;The process is described by an order 1kinetic model&quot;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  cannot be rejected.</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Non-linear least squares regression was performed with an order  1  kinetic model:</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Estimate of k: </span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Estimate  Std. Error  t value     Pr(&gt;|t|)</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; k 0.6878765 0.002626997 261.8489 1.541636e-11</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; In attesa che venga eseguita la profilazione...</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Confidence interval of k: </span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      2.5%     97.5% </span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.6812276 0.6947116 </span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Goodness-of-fit:</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                  Value</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AIC:        -11.933893</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AICc:       -10.933893</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; BIC:        -12.350374</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSE:         2.002812</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chi-sq_red:   5.379602</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -----------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">results</span>(res)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; Linear regression in the phase space: </span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; log(dx/dt)= 0.97 log(x) + ( -0.46 )</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; Estimate of n:</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt;     Estimate   Std. Error      t value     Pr(&gt;|t|) </span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; 9.701806e-01 4.235714e-03 2.290477e+02 1.835114e-07 </span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt; Confidence interval of n: </span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt;     2.5 %    97.5 % </span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt; 0.9567007 0.9836605 </span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co">#&gt; Statistical analysis indicates that an order 1 degradation kineitc model is likely to describe the data.</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co">#&gt; The null hypothesis H0:</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#&gt; &quot;The process is described by an order 1kinetic model&quot;</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#&gt;  cannot be rejected.</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co">#&gt; Non-linear least squares regression was performed with an order  1  kinetic model:</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="co">#&gt;  Estimate of k: </span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt;    Estimate  Std. Error  t value     Pr(&gt;|t|)</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="co">#&gt; k 0.6878765 0.002626997 261.8489 1.541636e-11</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co">#&gt; Waiting for profiling to be done...</span></span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="co">#&gt; Confidence interval of k: </span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="co">#&gt;      2.5%     97.5% </span></span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="co">#&gt; 0.6812276 0.6947116 </span></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="co">#&gt; Goodness-of-fit:</span></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co">#&gt;                  Value</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="co">#&gt; AIC:        -11.933893</span></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt; AICc:       -10.933893</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt; BIC:        -12.350374</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="co">#&gt; RMSE:         2.002812</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a><span class="co">#&gt; Chi-sq_red:   5.379602</span></span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="co">#&gt; -----------------------------------------------------</span></span></code></pre></div>
 <p>The function <code>plot_ord()</code> allows the graphical
 visualization of the results obtained with the whole analysis. Function
 automatically plots the experimental error when provided. In these
 plots, black lines show the best regression curve, whereas green lines
 show the fits with the reaction order chosen according to the criteria
 given in the previous section.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ord</span>(res)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">plot_ord</span>(res)</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><!-- --><img src="data:image/png;base64,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" /><!-- --></p>
 <p>The functions <code>phase_space()</code> and <code>kin_regr()</code>
 allow to retrieve the linear regression from the phase space and the
 regression with the selected model, respectively:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>linear_model_phase_space <span class="ot">&lt;-</span> <span class="fu">phase_space</span>(res)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>linear_model_phase_space</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; stats::lm(formula = log_dx_dt ~ log_x, data = ldframe, weights = 1/ldframe$err_log^2)</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept)        log_x  </span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     -0.4618       0.9702</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>kinetic_regression <span class="ot">&lt;-</span> <span class="fu">kin_regr</span>(res)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>kinetic_regression</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Nonlinear regression model</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   model: y ~ y0 * exp(-k * t)</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    data: list(t = dframe[[1]], y = dframe[[2]], y0 = y0, err = err)</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      k </span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.6879 </span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  weighted residual sum-of-squares: 20.06</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Number of iterations to convergence: 3 </span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Achieved convergence tolerance: 4.421e-08</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>linear_model_phase_space <span class="ot">&lt;-</span> <span class="fu">phase_space</span>(res)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>linear_model_phase_space</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; stats::lm(formula = log_dx_dt ~ log_x, data = ldframe, weights = 1/ldframe$err_log^2)</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; (Intercept)        log_x  </span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt;     -0.4618       0.9702</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>kinetic_regression <span class="ot">&lt;-</span> <span class="fu">kin_regr</span>(res)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>kinetic_regression</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt; Nonlinear regression model</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt;   model: y ~ y0 * exp(-k * t)</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt;    data: list(t = dframe[[1]], y = dframe[[2]], y0 = y0, err = err)</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt;      k </span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">#&gt; 0.6879 </span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">#&gt;  weighted residual sum-of-squares: 20.06</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">#&gt; Number of iterations to convergence: 3 </span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co">#&gt; Achieved convergence tolerance: 4.421e-08</span></span></code></pre></div>
 <div id="goodness-of-fit-measures" class="section level3">
 <h3>Goodness-of-fit measures</h3>
 <p>Goodness-of-fit statistics include functions that are already
@@ -545,32 +545,32 @@ which are the reduced chi-squared (<span class="math inline">\(\chi^2_{red}=\chi
 Akaike’s Information Criterion AICc corrected for finite samples. The
 values of both statistics are accessible with the functions
 <code>chiquad_red()</code> and <code>AICC()</code>, respectively.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chiquad_red</span>(kinetic_regression)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5.379602</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">AICC</span>(kinetic_regression)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] -10.93389</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">chiquad_red</span>(kinetic_regression)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co">#&gt; [1] 5.379602</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">AICC</span>(kinetic_regression)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt; [1] -10.93389</span></span></code></pre></div>
 <p>The whole statistics can be accessed through the
 <code>goodness_of_fit()</code>function.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">goodness_of_fit</span>(kinetic_regression)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                  Value</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AIC:        -11.933893</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AICc:       -10.933893</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; BIC:        -12.350374</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSE:         2.002812</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chi-sq_red:   5.379602</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">goodness_of_fit</span>(kinetic_regression)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt;                  Value</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt; AIC:        -11.933893</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt; AICc:       -10.933893</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt; BIC:        -12.350374</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt; RMSE:         2.002812</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt; Chi-sq_red:   5.379602</span></span></code></pre></div>
 </div>
 <div id="other-functions" class="section level3">
 <h3>Other functions</h3>
 <p>To generate a <code>formula</code> object containing the formula of
 an <em>n<sup>th</sup></em> kinetic reaction model, the function
 <code>f_gen(n)</code> can be called, by giving <em>n</em> as input.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f_gen</span>(<span class="dv">1</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; y ~ y0 * exp(-k * t)</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x000001cb8813c158&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f_gen</span>(<span class="dv">2</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; y ~ (1 * (k * t + (y0^(-1))/1))^-1</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x000001cb881b6e78&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">f_gen</span>(<span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#&gt; y ~ y0 * exp(-k * t)</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x00000209ac99fed0&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">f_gen</span>(<span class="dv">2</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#&gt; y ~ (1 * (k * t + (y0^(-1))/1))^-1</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#&gt; &lt;environment: 0x00000209aca49fb8&gt;</span></span></code></pre></div>
 </div>
 <div id="other-models" class="section level3">
 <h3>Other Models</h3>
@@ -607,30 +607,30 @@ data (see <code>par_est_FOMT()</code>). However, if <code>FOMT()</code>
 fails to converge, it is possible to input manually the initial
 parameter values using the function <code>FOMTm()</code> as RHS of the
 formula in the <code>stats::nls()</code> function:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">conc =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.99</span>, <span class="fl">0.98</span>, <span class="fl">0.5</span>, <span class="fl">0.24</span>, <span class="fl">0.12</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">FOMT</span>(dat))</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in numericDeriv(form[[3L]], names(ind), env, central = nDcentral) : </span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Valore assente o infinito generato nella valutazione del modello</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">nls</span>(conc <span class="sc">~</span> <span class="fu">FOMTm</span>(time, k, n),</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">conc =</span> dat<span class="sc">$</span>conc,</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">time =</span> dat<span class="sc">$</span>time</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="fu">list</span>(<span class="at">k =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">12</span>)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Nonlinear regression model</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   model: conc ~ FOMTm(time, k, n)</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    data: list(conc = dat$conc, time = dat$time)</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      k      n </span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1.147 24.433 </span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  residual sum-of-squares: 0.00772</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Number of iterations to convergence: 8 </span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Achieved convergence tolerance: 6.873e-06</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  <span class="at">conc =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.99</span>, <span class="fl">0.98</span>, <span class="fl">0.5</span>, <span class="fl">0.24</span>, <span class="fl">0.12</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>)</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">FOMT</span>(dat))</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="co">#&gt; Error in numericDeriv(form[[3L]], names(ind), env, central = nDcentral) : </span></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="co">#&gt;   Valore assente o infinito generato nella valutazione del modello</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">nls</span>(conc <span class="sc">~</span> <span class="fu">FOMTm</span>(time, k, n),</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>    <span class="at">conc =</span> dat<span class="sc">$</span>conc,</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>    <span class="at">time =</span> dat<span class="sc">$</span>time</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>  ),</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>  <span class="at">start =</span> <span class="fu">list</span>(<span class="at">k =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">12</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>)</span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt; Nonlinear regression model</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co">#&gt;   model: conc ~ FOMTm(time, k, n)</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="co">#&gt;    data: list(conc = dat$conc, time = dat$time)</span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="co">#&gt;      k      n </span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="co">#&gt;  1.147 24.433 </span></span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a><span class="co">#&gt;  residual sum-of-squares: 0.00772</span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a><span class="co">#&gt; Number of iterations to convergence: 8 </span></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a><span class="co">#&gt; Achieved convergence tolerance: 6.873e-06</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -640,19 +640,19 @@ formula in the <code>stats::nls()</code> function:</p>
 <h3>Generic workflow</h3>
 <p><code>chemdeg</code> package contains some simulated and actual
 experimental data that can be used for training purposes.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>urfa</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    time_min AA_55 AA_65 AA_75</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         0  1.00  1.00  1.00</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2        60  0.69  0.56  0.39</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       120  0.51  0.45  0.23</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4       180  0.43  0.37  0.19</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5       240  0.37  0.29  0.17</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6       300  0.31  0.25  0.14</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7       360  0.24  0.21  0.11</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8       480  0.20  0.16  0.09</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9       720  0.17  0.12  0.08</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      840  0.16  0.10  0.08</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11      960  0.15  0.10  0.07</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>urfa</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="co">#&gt;    time_min AA_55 AA_65 AA_75</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="co">#&gt; 1         0  1.00  1.00  1.00</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="co">#&gt; 2        60  0.69  0.56  0.39</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="co">#&gt; 3       120  0.51  0.45  0.23</span></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="co">#&gt; 4       180  0.43  0.37  0.19</span></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="co">#&gt; 5       240  0.37  0.29  0.17</span></span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a><span class="co">#&gt; 6       300  0.31  0.25  0.14</span></span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a><span class="co">#&gt; 7       360  0.24  0.21  0.11</span></span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a><span class="co">#&gt; 8       480  0.20  0.16  0.09</span></span>
+<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a><span class="co">#&gt; 9       720  0.17  0.12  0.08</span></span>
+<span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a><span class="co">#&gt; 10      840  0.16  0.10  0.08</span></span>
+<span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a><span class="co">#&gt; 11      960  0.15  0.10  0.07</span></span></code></pre></div>
 <p>The <code>urfa</code> data concern the normalized degradation
 kinetics of ascorbic acid in Urfa peppers dehydrated with hot air at 55,
 65 and 75°C (Dağhan et al., 2018). <code>urfa</code> returns a
@@ -664,57 +664,57 @@ are not readable from the <code>det_order()</code> function (see <a href="#packa
 the time data and the second the measured concentration of the compound
 (note that the data must not be necessarily normalized with respect to
 the concentration of the molecule at time 0):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">det_order</span>(urfa))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in det_order(urfa) : </span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Error: the number of columns provided does not match the</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              requirements. Only dataframe with 2 columns (time,data)</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              and 3 columns (time,data,error) are accepted</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>urfa1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(urfa<span class="sc">$</span>time_min, urfa<span class="sc">$</span>AA_55)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>ord.urfa<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">det_order</span>(urfa1)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Reaction order estimated: 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">det_order</span>(urfa))</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="co">#&gt; Error in det_order(urfa) : </span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="co">#&gt;   Error: the number of columns provided does not match the</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="co">#&gt;              requirements. Only dataframe with 2 columns (time,data)</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="co">#&gt;              and 3 columns (time,data,error) are accepted</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>urfa1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(urfa<span class="sc">$</span>time_min, urfa<span class="sc">$</span>AA_55)</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>ord.urfa<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">det_order</span>(urfa1)</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="co">#&gt; Reaction order estimated: 2</span></span></code></pre></div>
 <p>The function returns a message which informs the user about the best
 ordinary model that can explain the data, an order 2 degradation kinetic
 model in this case. the function <code>results()</code> provides more
 information:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">results</span>(ord.urfa<span class="fl">.1</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Linear regression in the phase space: </span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; log(dx/dt)= 2.45 log(x) + ( -4.56 )</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Estimate of n:</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Estimate   Std. Error      t value     Pr(&gt;|t|) </span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2.454865e+00 2.571281e-01 9.547245e+00 1.198314e-05 </span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Confidence interval of n: </span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    2.5 %   97.5 % </span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1.861927 3.047804 </span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Statistical analysis indicates that an order 2 degradation kineitc model is likely to describe the data.</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The null hypothesis H0:</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &quot;The process is described by an order 2kinetic model&quot;</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  cannot be rejected.</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Non-linear least squares regression was performed with an order  2  kinetic model:</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Estimate of k: </span></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Estimate   Std. Error  t value     Pr(&gt;|t|)</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; k 0.007517079 0.0002185557 34.39434 1.022054e-11</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; In attesa che venga eseguita la profilazione...</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Confidence interval of k: </span></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        2.5%       97.5% </span></span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.007047215 0.008026010 </span></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Goodness-of-fit:</span></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                   Value</span></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AIC:        -54.4227221</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AICc:       -53.9782777</span></span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; BIC:        -53.6269316</span></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSE:         0.0178302</span></span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chi-sq_red:          NA</span></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NB: Reduced Chi-squared is not calculated with unweighted data</span></span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -----------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">results</span>(ord.urfa<span class="fl">.1</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="co">#&gt; Linear regression in the phase space: </span></span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="co">#&gt; log(dx/dt)= 2.45 log(x) + ( -4.56 )</span></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a><span class="co">#&gt; Estimate of n:</span></span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a><span class="co">#&gt;     Estimate   Std. Error      t value     Pr(&gt;|t|) </span></span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a><span class="co">#&gt; 2.454865e+00 2.571281e-01 9.547245e+00 1.198314e-05 </span></span>
+<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a><span class="co">#&gt; Confidence interval of n: </span></span>
+<span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a><span class="co">#&gt;    2.5 %   97.5 % </span></span>
+<span id="cb19-13"><a href="#cb19-13" tabindex="-1"></a><span class="co">#&gt; 1.861927 3.047804 </span></span>
+<span id="cb19-14"><a href="#cb19-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-15"><a href="#cb19-15" tabindex="-1"></a><span class="co">#&gt; Statistical analysis indicates that an order 2 degradation kineitc model is likely to describe the data.</span></span>
+<span id="cb19-16"><a href="#cb19-16" tabindex="-1"></a><span class="co">#&gt; The null hypothesis H0:</span></span>
+<span id="cb19-17"><a href="#cb19-17" tabindex="-1"></a><span class="co">#&gt; &quot;The process is described by an order 2kinetic model&quot;</span></span>
+<span id="cb19-18"><a href="#cb19-18" tabindex="-1"></a><span class="co">#&gt;  cannot be rejected.</span></span>
+<span id="cb19-19"><a href="#cb19-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-20"><a href="#cb19-20" tabindex="-1"></a><span class="co">#&gt; Non-linear least squares regression was performed with an order  2  kinetic model:</span></span>
+<span id="cb19-21"><a href="#cb19-21" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb19-22"><a href="#cb19-22" tabindex="-1"></a><span class="co">#&gt;  Estimate of k: </span></span>
+<span id="cb19-23"><a href="#cb19-23" tabindex="-1"></a><span class="co">#&gt;      Estimate   Std. Error  t value     Pr(&gt;|t|)</span></span>
+<span id="cb19-24"><a href="#cb19-24" tabindex="-1"></a><span class="co">#&gt; k 0.007517079 0.0002185557 34.39434 1.022054e-11</span></span>
+<span id="cb19-25"><a href="#cb19-25" tabindex="-1"></a><span class="co">#&gt; Waiting for profiling to be done...</span></span>
+<span id="cb19-26"><a href="#cb19-26" tabindex="-1"></a><span class="co">#&gt; Confidence interval of k: </span></span>
+<span id="cb19-27"><a href="#cb19-27" tabindex="-1"></a><span class="co">#&gt;        2.5%       97.5% </span></span>
+<span id="cb19-28"><a href="#cb19-28" tabindex="-1"></a><span class="co">#&gt; 0.007047215 0.008026010 </span></span>
+<span id="cb19-29"><a href="#cb19-29" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-30"><a href="#cb19-30" tabindex="-1"></a><span class="co">#&gt; Goodness-of-fit:</span></span>
+<span id="cb19-31"><a href="#cb19-31" tabindex="-1"></a><span class="co">#&gt;                   Value</span></span>
+<span id="cb19-32"><a href="#cb19-32" tabindex="-1"></a><span class="co">#&gt; AIC:        -54.4227221</span></span>
+<span id="cb19-33"><a href="#cb19-33" tabindex="-1"></a><span class="co">#&gt; AICc:       -53.9782777</span></span>
+<span id="cb19-34"><a href="#cb19-34" tabindex="-1"></a><span class="co">#&gt; BIC:        -53.6269316</span></span>
+<span id="cb19-35"><a href="#cb19-35" tabindex="-1"></a><span class="co">#&gt; RMSE:         0.0178302</span></span>
+<span id="cb19-36"><a href="#cb19-36" tabindex="-1"></a><span class="co">#&gt; Chi-sq_red:          NA</span></span>
+<span id="cb19-37"><a href="#cb19-37" tabindex="-1"></a><span class="co">#&gt; NB: Reduced Chi-squared is not calculated with unweighted data</span></span>
+<span id="cb19-38"><a href="#cb19-38" tabindex="-1"></a><span class="co">#&gt; -----------------------------------------------------</span></span></code></pre></div>
 <p>first it returns the estimate of the order <em>n</em> along with its
 confidence interval. We remind that the algorithm automatically chooses
 the integer value (if present within the confidence interval) that is
@@ -734,7 +734,7 @@ is given. Finally, goodness-of-fit statistics are showed for non-linear
 regressions (note that this holds for reaction orders <span class="math inline">\(\ne 0\)</span>).</p>
 <p>A call to the function <code>plot_ord()</code> allows to visualize
 the results:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ord</span>(ord.urfa<span class="fl">.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">plot_ord</span>(ord.urfa<span class="fl">.1</span>)</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><!-- --><img src="data:image/png;base64,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" /><!-- --></p>
 <p>the plot on the left side represents the phase space of the system.
 On the right side, the kinetic data are plotted together with the
@@ -751,108 +751,108 @@ degradation kinetic model that best fit experimental data.</p>
 that concerns the degradation kinetics of a 1.2 mM solution of
 5-caffeoylquinic acid (5-CQA) in the presence of 1.2 mM ascorbic acid
 (Yusaku and Kuniyo, 2013).</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fomtdata</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time_h tCQA_AA</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      0   1.000</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      5   0.997</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     24   0.994</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     48   0.424</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5     72   0.190</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6     96   0.072</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7    144   0.053</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8    168   0.001</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>fomtdata</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="co">#&gt;   time_h tCQA_AA</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="co">#&gt; 1      0   1.000</span></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="co">#&gt; 2      5   0.997</span></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co">#&gt; 3     24   0.994</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">#&gt; 4     48   0.424</span></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">#&gt; 5     72   0.190</span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="co">#&gt; 6     96   0.072</span></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="co">#&gt; 7    144   0.053</span></span>
+<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a><span class="co">#&gt; 8    168   0.001</span></span></code></pre></div>
 <p>In this case the data are ready to be passed to the
 <code>det_order()</code> function:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ord.cqa <span class="ot">&lt;-</span> <span class="fu">det_order</span>(fomtdata)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Reaction order estimated: 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>ord.cqa <span class="ot">&lt;-</span> <span class="fu">det_order</span>(fomtdata)</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="co">#&gt; Reaction order estimated: 0</span></span></code></pre></div>
 <p>Indeed, the results are:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">results</span>(ord.cqa)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Linear regression in the phase space: </span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; log(dx/dt)= -0.07 log(x) + ( -6.35 )</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Estimate of n:</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Estimate  Std. Error     t value    Pr(&gt;|t|) </span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -0.06502888  0.57024177 -0.11403739  0.91364577 </span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Confidence interval of n: </span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     2.5 %    97.5 % </span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -1.530882  1.400824 </span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Estimate of the intercept is significant; but the estimate of slope is not.</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The data are likely to be described by an 0-order kinetic model.</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Linear  regression was performed (0-order kinetics).</span></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   </span></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Estimated k value: </span></span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; stats::lm(formula = y ~ t, data = list(t = dframe[[1]], y = dframe[[2]]))</span></span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -0.26063 -0.19418  0.07587  0.12336  0.22518 </span></span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept)  0.927907   0.113881   8.148 0.000184 ***</span></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; t           -0.006629   0.001251  -5.298 0.001834 ** </span></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.2074 on 6 degrees of freedom</span></span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8239, Adjusted R-squared:  0.7945 </span></span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 28.06 on 1 and 6 DF,  p-value: 0.001834</span></span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Confidence interval of k: </span></span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       2.5 %      97.5 % </span></span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.009690610 0.003567045 </span></span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -----------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">results</span>(ord.cqa)</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="co">#&gt; Linear regression in the phase space: </span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="co">#&gt; log(dx/dt)= -0.07 log(x) + ( -6.35 )</span></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="co">#&gt; Estimate of n:</span></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="co">#&gt;    Estimate  Std. Error     t value    Pr(&gt;|t|) </span></span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="co">#&gt; -0.06502888  0.57024177 -0.11403739  0.91364577 </span></span>
+<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a><span class="co">#&gt; Confidence interval of n: </span></span>
+<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a><span class="co">#&gt;     2.5 %    97.5 % </span></span>
+<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="co">#&gt; -1.530882  1.400824 </span></span>
+<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a><span class="co">#&gt; Estimate of the intercept is significant; but the estimate of slope is not.</span></span>
+<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a><span class="co">#&gt; The data are likely to be described by an 0-order kinetic model.</span></span>
+<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a><span class="co">#&gt; Linear  regression was performed (0-order kinetics).</span></span>
+<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a><span class="co">#&gt;   </span></span>
+<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a><span class="co">#&gt; Estimated k value: </span></span>
+<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a><span class="co">#&gt; stats::lm(formula = y ~ t, data = list(t = dframe[[1]], y = dframe[[2]]))</span></span>
+<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb23-27"><a href="#cb23-27" tabindex="-1"></a><span class="co">#&gt; -0.26063 -0.19418  0.07587  0.12336  0.22518 </span></span>
+<span id="cb23-28"><a href="#cb23-28" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-29"><a href="#cb23-29" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb23-30"><a href="#cb23-30" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb23-31"><a href="#cb23-31" tabindex="-1"></a><span class="co">#&gt; (Intercept)  0.927907   0.113881   8.148 0.000184 ***</span></span>
+<span id="cb23-32"><a href="#cb23-32" tabindex="-1"></a><span class="co">#&gt; t           -0.006629   0.001251  -5.298 0.001834 ** </span></span>
+<span id="cb23-33"><a href="#cb23-33" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb23-34"><a href="#cb23-34" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb23-35"><a href="#cb23-35" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-36"><a href="#cb23-36" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.2074 on 6 degrees of freedom</span></span>
+<span id="cb23-37"><a href="#cb23-37" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8239, Adjusted R-squared:  0.7945 </span></span>
+<span id="cb23-38"><a href="#cb23-38" tabindex="-1"></a><span class="co">#&gt; F-statistic: 28.06 on 1 and 6 DF,  p-value: 0.001834</span></span>
+<span id="cb23-39"><a href="#cb23-39" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-40"><a href="#cb23-40" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb23-41"><a href="#cb23-41" tabindex="-1"></a><span class="co">#&gt; Confidence interval of k: </span></span>
+<span id="cb23-42"><a href="#cb23-42" tabindex="-1"></a><span class="co">#&gt;       2.5 %      97.5 % </span></span>
+<span id="cb23-43"><a href="#cb23-43" tabindex="-1"></a><span class="co">#&gt; 0.009690610 0.003567045 </span></span>
+<span id="cb23-44"><a href="#cb23-44" tabindex="-1"></a><span class="co">#&gt; -----------------------------------------------------</span></span></code></pre></div>
 <p>In this case the software suggests that a 0-order model might
 actually fit the data. However a plot of the results indicates that a
 0-order model is actually not suitable to explain the experimental
 data:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ord</span>(ord.cqa)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">plot_ord</span>(ord.cqa)</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><img src="data:image/png;base64,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" />
 Please remind that the <code>kin_regr()</code> function returns the
 kinetic regression on kinetic data. Information can be retrieved to
 eventually check if the regression is indeed reliable:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lin <span class="ot">&lt;-</span> <span class="fu">kin_regr</span>(ord.cqa)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lin)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; stats::lm(formula = y ~ t, data = list(t = dframe[[1]], y = dframe[[2]]))</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -0.26063 -0.19418  0.07587  0.12336  0.22518 </span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept)  0.927907   0.113881   8.148 0.000184 ***</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; t           -0.006629   0.001251  -5.298 0.001834 ** </span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.2074 on 6 degrees of freedom</span></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8239, Adjusted R-squared:  0.7945 </span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 28.06 on 1 and 6 DF,  p-value: 0.001834</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>lin <span class="ot">&lt;-</span> <span class="fu">kin_regr</span>(ord.cqa)</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="fu">summary</span>(lin)</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="co">#&gt; stats::lm(formula = y ~ t, data = list(t = dframe[[1]], y = dframe[[2]]))</span></span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a><span class="co">#&gt; -0.26063 -0.19418  0.07587  0.12336  0.22518 </span></span>
+<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb25-12"><a href="#cb25-12" tabindex="-1"></a><span class="co">#&gt;              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb25-13"><a href="#cb25-13" tabindex="-1"></a><span class="co">#&gt; (Intercept)  0.927907   0.113881   8.148 0.000184 ***</span></span>
+<span id="cb25-14"><a href="#cb25-14" tabindex="-1"></a><span class="co">#&gt; t           -0.006629   0.001251  -5.298 0.001834 ** </span></span>
+<span id="cb25-15"><a href="#cb25-15" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb25-16"><a href="#cb25-16" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb25-17"><a href="#cb25-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-18"><a href="#cb25-18" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.2074 on 6 degrees of freedom</span></span>
+<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.8239, Adjusted R-squared:  0.7945 </span></span>
+<span id="cb25-20"><a href="#cb25-20" tabindex="-1"></a><span class="co">#&gt; F-statistic: 28.06 on 1 and 6 DF,  p-value: 0.001834</span></span></code></pre></div>
 <p>However, the data in the previous plot show a time-dependent trend
 that is reminiscent of the graph of the nonlinear FOMT function. The
 function<code>FOMT()</code> permits to fit the data with the same name
 model:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FOMT</span>(fomtdata)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Nonlinear regression model</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   model: y ~ 1 - (1 - exp(-k * t))^n</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    data: list(y = y, t = t)</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       k       n </span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.05684 9.47817 </span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  residual sum-of-squares: 0.0108</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Number of iterations to convergence: 10 </span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Achieved convergence tolerance: 3.98e-06</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">FOMT</span>(fomtdata)</span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a><span class="co">#&gt; Nonlinear regression model</span></span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="co">#&gt;   model: y ~ 1 - (1 - exp(-k * t))^n</span></span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a><span class="co">#&gt;    data: list(y = y, t = t)</span></span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a><span class="co">#&gt;       k       n </span></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a><span class="co">#&gt; 0.05684 9.47817 </span></span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a><span class="co">#&gt;  residual sum-of-squares: 0.0108</span></span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a><span class="co">#&gt; Number of iterations to convergence: 10 </span></span>
+<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a><span class="co">#&gt; Achieved convergence tolerance: 3.98e-06</span></span></code></pre></div>
 <p>It is possible that the function <code>FOMT()</code> could not be
 able to converge. This is because initial parameter values automatically
 chosen by the program are not close enough to the <em>true</em> ones
@@ -860,42 +860,42 @@ chosen by the program are not close enough to the <em>true</em> ones
 <code>stats</code>). To perform the non-linear regression a manual input
 of the initial parameter value is required using the
 function<code>FOMTm()</code> as RHS of the formula:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>regr.FOMT <span class="ot">&lt;-</span> <span class="fu">nls</span>(y <span class="sc">~</span> <span class="fu">FOMTm</span>(t, k, n),</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">y =</span> fomtdata<span class="sc">$</span>tCQA_AA, <span class="at">t =</span> fomtdata<span class="sc">$</span>time_h),</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">k =</span> <span class="fl">0.05</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regr.FOMT)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Formula: y ~ FOMTm(t, k, n)</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Parameters:</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; n 9.478163   3.926141   2.414 0.052280 .  </span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; k 0.056836   0.008206   6.926 0.000449 ***</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.04243 on 6 degrees of freedom</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Number of iterations to convergence: 9 </span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Achieved convergence tolerance: 5.453e-06</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>regr.FOMT <span class="ot">&lt;-</span> <span class="fu">nls</span>(y <span class="sc">~</span> <span class="fu">FOMTm</span>(t, k, n),</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">y =</span> fomtdata<span class="sc">$</span>tCQA_AA, <span class="at">t =</span> fomtdata<span class="sc">$</span>time_h),</span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>  <span class="at">start =</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">k =</span> <span class="fl">0.05</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>)</span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a><span class="fu">summary</span>(regr.FOMT)</span>
+<span id="cb27-6"><a href="#cb27-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-7"><a href="#cb27-7" tabindex="-1"></a><span class="co">#&gt; Formula: y ~ FOMTm(t, k, n)</span></span>
+<span id="cb27-8"><a href="#cb27-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-9"><a href="#cb27-9" tabindex="-1"></a><span class="co">#&gt; Parameters:</span></span>
+<span id="cb27-10"><a href="#cb27-10" tabindex="-1"></a><span class="co">#&gt;   Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb27-11"><a href="#cb27-11" tabindex="-1"></a><span class="co">#&gt; n 9.478163   3.926141   2.414 0.052280 .  </span></span>
+<span id="cb27-12"><a href="#cb27-12" tabindex="-1"></a><span class="co">#&gt; k 0.056836   0.008206   6.926 0.000449 ***</span></span>
+<span id="cb27-13"><a href="#cb27-13" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb27-14"><a href="#cb27-14" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb27-15"><a href="#cb27-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-16"><a href="#cb27-16" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.04243 on 6 degrees of freedom</span></span>
+<span id="cb27-17"><a href="#cb27-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-18"><a href="#cb27-18" tabindex="-1"></a><span class="co">#&gt; Number of iterations to convergence: 9 </span></span>
+<span id="cb27-19"><a href="#cb27-19" tabindex="-1"></a><span class="co">#&gt; Achieved convergence tolerance: 5.453e-06</span></span></code></pre></div>
 <p>The following plot compares the results from both linear (in red
 color) and non-linear regression analysis of the experimental data:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fomtdata<span class="sc">$</span>time_h, fomtdata<span class="sc">$</span>tCQA_AA,</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;time (h)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;C/C0&quot;</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>new_t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(fomtdata<span class="sc">$</span>time_h), <span class="at">length.out =</span> <span class="dv">100</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(new_t, <span class="fu">predict</span>(regr.FOMT, <span class="at">newdata =</span> <span class="fu">list</span>(<span class="at">t =</span> new_t)))</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(fomtdata<span class="sc">$</span>time_h, <span class="fu">predict</span>(lin), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">plot</span>(fomtdata<span class="sc">$</span>time_h, fomtdata<span class="sc">$</span>tCQA_AA,</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;time (h)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;C/C0&quot;</span></span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>)</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>new_t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(fomtdata<span class="sc">$</span>time_h), <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a><span class="fu">lines</span>(new_t, <span class="fu">predict</span>(regr.FOMT, <span class="at">newdata =</span> <span class="fu">list</span>(<span class="at">t =</span> new_t)))</span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a><span class="fu">lines</span>(fomtdata<span class="sc">$</span>time_h, <span class="fu">predict</span>(lin), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAAV1BMVEUAAAAAADoAAGYAOjoAOpAAZrY6AAA6ADo6AGY6Ojo6kNtmAABmADpmkJBmtrZmtv+QOgCQ2/+2ZgC2///bkDrb/7bb////AAD/tmb/25D//7b//9v////+B97RAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAITElEQVR4nO2di3ajNhRFyXTsmSZtnThubSf8/3cWI4QxRpwr0JUEnL3WOJP4SiJ76Y2Ci5KMUqS+gNyhIAAFASgIQEEACgJQEICCABQEoCAABQEoCEBBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEoCAABQEoCEBBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEoCAABQEoCEBBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEGAwIKKxZBKUGMpbK4KpBRk/j1byspbQkFFm2/RfyujHi+yoG7TLno90UNB2RhKXYOMF9sj3SsPBZXdttRmXimioHt2ReOjeHhj033QQHb9MWtoXEtIekHaJc0kQ0FlThUoS0FZ1aG0gs5xCptD4hp0dijKx1DyJjasaPWCjkWx+36vxusDzi5vQzqCTj//qxztyvLr7RVnN1SJ1i3o+73Scnn5KI0qnF3GhlQEfb1VLevy47O0rzC7Z0OrFuRdg4aaWSaGlPugWpUsu76hVQvyGsUseRpKPg/q0G9mWRjKSVC/Em1C0Ek2ilkeK1EOhhJu2g/TNbRBQYLszpKgeOQnqNvMMjCkJKge4iscPRDI7iyKioPSRLFo5oeXQjxR7JKRIb2lhkG61Ohhm9lKBdWLVYNwsfpMLoYyrUGlNbROQVUf1FShiX1QTd3MViqoamRmFHPUH2F2ORjKcB7U4UxBgDMFAc7nxIZyF+S++xoJb0FwERG43NSGfAXhRUTgcqtQ1/3pKHgKEkwBA5dbhyY05ClIsIgIXG6Z2NACalAdm6yZ+fdBaBERuNw2NpEh71EMLiICl3sPTmMou037kbKTNLP8J4rd6ASGJkwUd9XrdT+rB/L23RqKrshX0Neb6XzsV/Vy++GxDfkKOlovzrNjgct9io9saAnzoF583Ga2hJn0U3xMQ96C7jUoqqCeoXiKvPugnf3BMWoT6yeIZshX0HV/6P1HuVxXgliVyHse1KzBTpKl2IhE/3nnU4o4hvxn0mZLcTcWa9drIzuPAQTFMaSz1GiqWdAaNGQogiLvUUw2dpmJtragGJVo0naHRNLx5SOwoGFD2oomNTGRpKobD9tJO7ZIlA1N7oNwY7vu/wgoqHAm0q1EmvtB1XgXTFAd79pm0zS0kP2gJt6VStGQ9n6Q50FyULwzlV4zi7wfNG1P2pY/lkrL0FL2g5pRLL6hpewHCZLpNDOl/aB5B8nhZTjQMKSzHzT3IDm8DAcKlUhlPyjIMeDx63AR3JDKflCIg+TwQhyENqSyH6RZg7ChsIp0lhpBDpJPvpKghpTWYmEOkk9NG9LQMg4v+KYN2MyWKEiSOJihtQoKVokWKUiWOoyhFQsKY2iZgqSGAihaqCBp+vmGlioomqHFChIbmqlouYLsNjXcvZ1naOmC3LfL7swyFFnQ9E37oczgzY6GOc1swTXololM0JxKtGhB9j6QZG02VdGyBZWFpA8yTDS0cEGlR3c2zdDSBflkNKmZLV6QV04TDC1fkNcj8P0NrUCQlyLvZrYKQZrNbB2CnrIbG9v8DCkJUju84OLRyPjsyKuZad041Dq8MMJdEZxf954ZO9aHqQjSvfXspnj4OlZEtxKNVzcVQaqHF8bw+Iiy3qMancGrqkEm54HP5BrCGkohSPfwAka24XTuPogwsiDdwwsSRI7uhgZCi86nC4pKlAYmyc5RCNJ0tmEDaUunOkdhftcWObvRokb2eZ1TorbhaQsKddI+DMUz54GftTojCHJeYZDsQjBch6LVoEjZzcH9AV4b6YMww4ZUR7Hoi9V5jKxeky1W8+Ls7qs1BIn/JsizHqmGz63TgRer/plqh8cUxBqEkD5tcbOCpE9b3K4gnUwpKGU4BYXNPHj6EJluT9CaoCAABQEoCEBBAAoCUBCAggAUBKAgAAUBKAhAQYDwgi5F8fIhijT7kztZmuvvz4fcx5OYaK8CHAQXdKku5CK7mOuvD3Ga5gmhbeR4kibapwAXoQWZOx/H0ecQWey9I0Gai7mb20aOJ2mifQpwElqQecSX7JMDTjtpmkvxWv+ybeRoEhvtUYCb4ILqWi171uDxz6qHeBWmMYJsJEpi3vEqwEFoQaali9q7eSzq8VWWpv712kiUpI72K8BBQkFNgh+fWoL8CnCQsomZBPuDWhPzKsBByk7aJPj1IUrj0UmXj4KEBThIOMyby65+FVGai8cw/6BTWoCDlBPF+oqrPlSU5uIzUbSjmE8BDsIvNU7yWf2xGoUPwjRNo2kjx5M00T4FOOBiFUBBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEoCAABQEoCEBBAAoCZCTocug+HWSQ7/eDDfn6a9q9dl/yEYTk3Djt7mGXWR9KLWZRgm4hbVhVm7Qv6UY2gq77ovj5b/XbX/f/vBXF6+37+lyYOahaczvU8vX2t30nShXKRlBbPa77l49KS+XidmbuVH1z3TeGbgeivt5ub9szVPrkKOh2stm8HMzHmDfHoepv6pf6cN3Yx1KHI0dBh7sBU0saFXX3030ZfYhRIHIX1DySrRZU/5CCBmpQJ4KCHgU9jP1NH2QFba8Pen0WZMarY1OPzChmBW1tFCuPdh7UFVTPg+wReTMPsoK2Ng8S0Gtw25pJizh1/ppgc2sxCZ311/ZW85lCQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEoCAABQEoCEBBAAoCUBCAggD/AxTktXNfF1+wAAAAAElFTkSuQmCC" /><!-- --></p>
 <p>The FOMT model fits the data much better than the linear model.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">goodness_of_fit</span>(regr.FOMT)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                    Value</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AIC:        -24.15681095</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AICc:       -21.75681095</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; BIC:        -23.91848633</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RMSE:         0.04243006</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chi-sq_red:           NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">goodness_of_fit</span>(regr.FOMT)</span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="co">#&gt;                    Value</span></span>
+<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a><span class="co">#&gt; AIC:        -24.15681095</span></span>
+<span id="cb29-4"><a href="#cb29-4" tabindex="-1"></a><span class="co">#&gt; AICc:       -21.75681095</span></span>
+<span id="cb29-5"><a href="#cb29-5" tabindex="-1"></a><span class="co">#&gt; BIC:        -23.91848633</span></span>
+<span id="cb29-6"><a href="#cb29-6" tabindex="-1"></a><span class="co">#&gt; RMSE:         0.04243006</span></span>
+<span id="cb29-7"><a href="#cb29-7" tabindex="-1"></a><span class="co">#&gt; Chi-sq_red:           NA</span></span></code></pre></div>
 </div>
 </div>
 
